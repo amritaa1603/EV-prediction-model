@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import os
 from datetime import datetime
 import matplotlib.pyplot as plt
 
@@ -9,8 +10,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="EV Forecast", layout="wide")
 
 # === Load model ===
-model = joblib.load('D:\\windowc\\ev vehicle\\forecasting_ev_model.pkl')
-
+model = joblib.load(os.path.join(os.path.dirname(__file__), "forecasting_ev_model.pkl"))
 
 # === Styling ===
 # === Styling (Dark Blue Theme) ===
@@ -43,7 +43,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Image
-st.image("D:/windowc/ev vehicle/ev-car-factory.jpg", use_container_width=True)
+st.image(os.path.join(os.path.dirname(__file__), "ev-car-factory.jpg"), use_container_width=True)
+
 
 
 # Instruction line
