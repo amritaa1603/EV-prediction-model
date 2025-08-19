@@ -9,20 +9,23 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="EV Forecast", layout="wide")
 
 # === Load model ===
-model = joblib.load('forecasting_ev_model.pkl')
+model = joblib.load('D:\\windowc\\ev vehicle\\forecasting_ev_model.pkl')
+
 
 # === Styling ===
+# === Styling (Dark Blue Theme) ===
 st.markdown("""
     <style>
-        body {
-            background-color: #fcf7f7;
-            color: #000000;
-        }
         .stApp {
-            background: linear-gradient(to right, #c2d3f2, #7f848a);
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        body, div, p, label, h1, h2, h3, h4, h5, h6 {
+            color: white !important;
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Display image after config and styles
 # Stylized title using markdown + HTML
@@ -34,13 +37,14 @@ st.markdown("""
 
 # Welcome subtitle
 st.markdown("""
-    <div style='text-align: center; font-size: 22px; font-weight: bold; padding-top: 10px; margin-bottom: 25px; color: #FFFFFF;'>
+    <div style='text-align: center; font-size: 22px; font-weight: bold; padding-top: 10px; margin-bottom: 25px; color: #FFFFF;'>
         Welcome to the Electric Vehicle (EV) Adoption Forecast tool.
     </div>
 """, unsafe_allow_html=True)
 
 # Image
-st.image("ev-car-factory.jpg", use_container_width=True)
+st.image("D:/windowc/ev vehicle/ev-car-factory.jpg", use_container_width=True)
+
 
 # Instruction line
 st.markdown("""
@@ -53,7 +57,9 @@ st.markdown("""
 # === Load data (must contain historical values, features, etc.) ===
 @st.cache_data
 def load_data():
-    df = pd.read_csv("preprocessed_ev_data.csv")
+   
+
+    df = pd.read_csv("D:/windowc/ev vehicle/preprocessed_ev_data.csv")
     df['Date'] = pd.to_datetime(df['Date'])
     return df
 
