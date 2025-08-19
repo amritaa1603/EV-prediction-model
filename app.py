@@ -60,7 +60,8 @@ st.markdown("""
 def load_data():
    
 
-    df = pd.read_csv("D:/windowc/ev vehicle/preprocessed_ev_data.csv")
+    df = pd.read_csv("preprocessed_ev_data.csv")
+
     df['Date'] = pd.to_datetime(df['Date'])
     return df
 
