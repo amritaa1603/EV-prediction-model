@@ -230,18 +230,75 @@ st.pyplot(fig)
 
 st.subheader("⚡ Predict Future EV Adoption")
 
-input_value = st.slider(
-    "Select Input Value",
-    0,
-    100,
-    50
+# SHOW HOW MANY FEATURES MODEL EXPECTS
+st.write("Model expects", model.n_features_in_, "features")
+
+# INPUT FIELDS
+feature1 = st.number_input("Year", value=2025)
+
+feature2 = st.number_input(
+    "Population",
+    value=100000
 )
 
+feature3 = st.number_input(
+    "Electric Range",
+    value=250
+)
+
+feature4 = st.number_input(
+    "Charging Stations",
+    value=50
+)
+
+feature5 = st.number_input(
+    "Market Growth Index",
+    value=80
+)
+
+# PREDICTION BUTTON
 if st.button("Generate Prediction"):
 
-    prediction = model.predict([[input_value]])
+    features = [[
+        feature1,
+        feature2,
+        feature3,
+        feature4,
+        feature5
+    ]]
 
-    st.success(f"Predicted EV Adoption: {prediction[0]:.2f}")
+    prediction = model.predict(features)
+
+    st.success(
+        f"Predicted EV Adoption: {prediction[0]:,.2f}"
+    )
+
+    # AI ANALYSIS CARD
+    st.markdown(f"""
+    <div style="
+    margin-top:20px;
+    padding:25px;
+    border-radius:24px;
+    background: rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    ">
+
+    <h2>📊 AI Prediction Analysis</h2>
+
+    <p style="
+    font-size:18px;
+    line-height:1.9;
+    color:#cbd5e1;
+    ">
+
+    The machine learning model predicts future EV adoption
+    based on historical market trends, charging infrastructure,
+    population growth, and electric vehicle demand indicators.
+
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
 
 # ============================================
 # INSIGHTS
