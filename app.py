@@ -21,7 +21,7 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    return joblib.load("model.pkl")
+    return joblib.load("forecasting_ev_model.pkl")
 
 @st.cache_data
 def load_data():
