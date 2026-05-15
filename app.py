@@ -25,7 +25,7 @@ def load_model():
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("ev_data.csv")
+    return pd.read_csv("Electric_Vehicle_Population_By_County.csv")
 
 model = load_model()
 df = load_data()
