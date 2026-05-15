@@ -511,9 +511,7 @@ st.markdown("""
 ⚡ EV Intelligence Dashboard
 </h3>
 
-<p style="color:#64748b;">
-Built with Streamlit • Machine Learning • Modern Frontend UI
-</p>
+
 
 </center>
 """, unsafe_allow_html=True)
